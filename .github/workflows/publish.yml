@@ -1,6 +1,6 @@
 name: Publish to Cloudflare
 on:
-  push:
+  #push:
   #schedule:
   #  - cron: "0 18 * * *" # every day, UTC 18:00 is 2:00AM at China
   workflow_dispatch:
@@ -38,21 +38,4 @@ jobs:
           echo "URL: ${{ steps.publish.outputs.deployment-url }}"
           echo "Environment: ${{ steps.publish.outputs.pages-environment }}"
           echo "Alias: ${{ steps.publish.outputs.pages-deployment-alias-url }}"
-
-      - name: Publish to Cloudflare C
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ vars.CLOUDFLARE_API_TOKEN_C }}
-          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID_C }}
-          # Optional: Enable this if you want to have GitHub Deployments triggered
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          # Optional: Change the working directory
-          command: pages deploy ./dist --project-name=edge
-        id: publishc
-      - name: Outputs of edge C
-        run: | 
-          echo "ID: ${{ steps.publishc.outputs.pages-deployment-id }}"
-          echo "URL: ${{ steps.publishc.outputs.deployment-url }}"
-          echo "Environment: ${{ steps.publishc.outputs.pages-environment }}"
-          echo "Alias: ${{ steps.publishc.outputs.pages-deployment-alias-url }}"
 
