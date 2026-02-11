@@ -29,7 +29,6 @@ jobs:
           # Optional: Enable this if you want to have GitHub Deployments triggered
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           # Optional: Change the working directory
-          workingDirectory: ./dist
           command: pages deploy ./dist --project-name=edge
         id: publish
       - name: Outputs of edge B
@@ -47,7 +46,6 @@ jobs:
           # Optional: Enable this if you want to have GitHub Deployments triggered
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           # Optional: Change the working directory
-          workingDirectory: ./dist
           command: pages deploy ./dist --project-name=edge
         id: publishc
       - name: Outputs of edge C
