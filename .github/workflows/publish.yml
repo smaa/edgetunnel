@@ -26,17 +26,11 @@ jobs:
         with:
           apiToken: ${{ vars.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: edge
-          directory: ./dist
           # Optional: Enable this if you want to have GitHub Deployments triggered
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          # Optional: Switch what branch you are publishing to.
-          # By default this will be the branch which triggered this workflow
-          branch: main
           # Optional: Change the working directory
-          #workingDirectory: my-site
-          # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
-          wranglerVersion: '3'
+          workingDirectory: ./dist
+          command: pages deploy ./dist --project-name=edge
         id: publish
       - name: Outputs of edge B
         run: |
@@ -50,17 +44,11 @@ jobs:
         with:
           apiToken: ${{ vars.CLOUDFLARE_API_TOKEN_C }}
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID_C }}
-          projectName: edge
-          directory: ./dist
           # Optional: Enable this if you want to have GitHub Deployments triggered
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          # Optional: Switch what branch you are publishing to.
-          # By default this will be the branch which triggered this workflow
-          branch: main
           # Optional: Change the working directory
-          #workingDirectory: my-site
-          # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
-          wranglerVersion: '3'
+          workingDirectory: ./dist
+          command: pages deploy ./dist --project-name=edge
         id: publishc
       - name: Outputs of edge C
         run: |          
