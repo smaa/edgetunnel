@@ -16,6 +16,9 @@ jobs:
         uses: actions/checkout@v3
 
       # Run a build step here if your project requires
+      - name: Run build for uglifyjs
+        run: npm run build
+        
       - name: Publish to Cloudflare B
         uses: cloudflare/pages-action@v1.5.0
         with:
@@ -39,27 +42,3 @@ jobs:
           echo "URL: ${{ steps.publish.outputs.url }}"
           echo "Environment: ${{ steps.publish.outputs.environment }}"
           echo "Alias: ${{ steps.publish.outputs.alias }}"
-          
-      - name: Publish to Cloudflare C
-        uses: cloudflare/pages-action@v1.5.0
-        with:
-          apiToken: ${{ vars.CLOUDFLARE_API_TOKEN_C }}
-          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID_C }}
-          projectName: edge
-          directory: ./
-          # Optional: Enable this if you want to have GitHub Deployments triggered
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          # Optional: Switch what branch you are publishing to.
-          # By default this will be the branch which triggered this workflow
-          branch: main
-          # Optional: Change the working directory
-          #workingDirectory: my-site
-          # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
-          wranglerVersion: '3'
-        id: publishc
-      - name: Outputs of edge
-        run: |          
-          echo "ID: ${{ steps.publishc.outputs.id }}"
-          echo "URL: ${{ steps.publishc.outputs.url }}"
-          echo "Environment: ${{ steps.publishc.outputs.environment }}"
-          echo "Alias: ${{ steps.publishc.outputs.alias }}"
