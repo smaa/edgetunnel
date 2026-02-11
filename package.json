@@ -1,0 +1,3 @@
+"scripts": {
+  "build": "uglifyjs _worker.js -o dist/_worker.js"
+}
