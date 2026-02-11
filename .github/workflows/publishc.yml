@@ -1,4 +1,4 @@
-name: Publish to Cloudflare
+name: Publish to Cloudflare C
 on:
   #push:
   #schedule:
