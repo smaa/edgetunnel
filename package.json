@@ -4,7 +4,7 @@
   "description": "A project that demonstrates UglifyJS in GitHub Actions",
   "main": "index.js",
   "scripts": {
-    "build": "uglifyjs _worker.js -o _worker.min.js"
+    "build": "mkdir -p dist && uglifyjs _worker.js -o dist/_worker.js"
   },
   "dependencies": {},
   "devDependencies": {
