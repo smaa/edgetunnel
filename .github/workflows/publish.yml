@@ -27,7 +27,7 @@ jobs:
           apiToken: ${{ vars.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           projectName: edge
-          directory: ./
+          directory: ./dist
           # Optional: Enable this if you want to have GitHub Deployments triggered
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           # Optional: Switch what branch you are publishing to.
@@ -51,7 +51,7 @@ jobs:
           apiToken: ${{ vars.CLOUDFLARE_API_TOKEN_C }}
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID_C }}
           projectName: edge
-          directory: ./
+          directory: ./dist
           # Optional: Enable this if you want to have GitHub Deployments triggered
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           # Optional: Switch what branch you are publishing to.
