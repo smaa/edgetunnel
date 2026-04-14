@@ -5,7 +5,7 @@ jobs:
   delete-runs: 
     name: delete runs
     runs-on: ubuntu-latest
-  steps:
+    steps:
     - name: Delete workflow runs
     # 删除工作流记录/只保留5天记录
       uses: Mattraks/delete-workflow-runs@main
