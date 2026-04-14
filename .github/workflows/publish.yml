@@ -11,7 +11,7 @@ jobs:
     permissions:
       contents: read
       deployments: write
-    name: Publish to Cloudflare Pages
+    name: Publish to Cloudflare Pages B
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -25,8 +25,8 @@ jobs:
       - name: Publish to Cloudflare B
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ vars.CLOUDFLARE_API_TOKEN_B }}
-          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID_B }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN_B }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID_B }}
           # Optional: Enable this if you want to have GitHub Deployments triggered
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           # Optional: Change the working directory
